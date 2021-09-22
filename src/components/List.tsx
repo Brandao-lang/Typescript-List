@@ -5,8 +5,8 @@ import ".././styles/list.css"
 interface IProps {
     books: {
         title: string,
-        url: string,
-        genre?: string,
+        url?: string,
+        genre: string,
         pages: number,
         author: string
     }[]

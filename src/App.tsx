@@ -6,11 +6,11 @@ import List from './components/List';
 import AddBooks from './components/AddBook';
 
 // Setting the types for the useState hook, initilizing an array of objects with these types
-interface IState {
+export interface IState {
   books: {
     title: string,
-    url: string,
-    genre?: string,
+    url?: string,
+    genre: string,
     pages: number,
     author: string
   }[]
@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       <h1>My Books</h1>
       <List books={books}/>
-      <AddBooks />
+      <AddBooks books={books} setBooks={setBooks}/>
     </div>
   );
 }
