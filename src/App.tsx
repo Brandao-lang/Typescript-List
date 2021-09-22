@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import './components/List'
+import './components/AddBook'
+import List from './components/List';
+import AddBooks from './components/AddBook';
+
+// Setting the types for the useState hook, initilizing an array of objects with these types
+interface IState {
+  books: {
+    title: string,
+    url: string,
+    genre?: string,
+    pages: number,
+    author: string
+  }[]
+}
 
 function App() {
+    const [books, setBooks] = useState<IState['books']>([
+      {
+        title: 'The Witcher',
+        url: "https://m.media-amazon.com/images/I/51pRo5wpR4L.jpg",
+        genre: "Fantasy",
+        pages: 287,
+        author: "Andrez Sapkowski"
+      }
+    ])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My Books</h1>
+      <List books={books}/>
+      <AddBooks />
     </div>
   );
 }
