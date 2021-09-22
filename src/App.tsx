@@ -5,7 +5,7 @@ import './components/AddBook'
 import List from './components/List';
 import AddBooks from './components/AddBook';
 
-// Setting the types for the useState hook, initilizing an array of objects with these types
+// Setting the types for the useState hook, initializing an array of objects with these types
 export interface IState {
   books: {
     title: string,
