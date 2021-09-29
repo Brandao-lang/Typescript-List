@@ -3,7 +3,12 @@ form {
   margin: 0 auto;
 }
 
-input {
+.form-control {
+  height: 2px;
+}
+
+input,
+.form-floating {
   display: block;
   margin: 15px;
   width: 100%;

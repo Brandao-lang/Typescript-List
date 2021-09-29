@@ -3,7 +3,7 @@ import ".././styles/list.css"
 import EditBook from "./EditBook";
 
 // Have to define what the prop will look like that this componenet will be expecting
-export interface IProps {
+export interface ListProps {
     books: {
         title: string,
         url?: string,
@@ -18,16 +18,16 @@ export interface IProps {
         pages: number,
         author: string
     }
-    setBooks: React.Dispatch<React.SetStateAction<IProps['books']>>,
+    setBooks: React.Dispatch<React.SetStateAction<ListProps['books']>>,
     selected: number
 
 }
 
-// Declaring that 'List' is a react functional component with the types of IProps
-const List: React.FC<IProps> = ({books, setBooks}) => {
+// Declaring that 'List' is a react functional component with the types of ListProps
+const List: React.FC<ListProps> = ({books, setBooks}) => {
     const [selected, setSelected] = useState<number>(0)
     const [showEdit, setShowEdit] = useState<boolean>(false)
-    const [editBook, setEditBook] = useState<IProps['editBook']>({
+    const [editBook, setEditBook] = useState<ListProps['editBook']>({
         title: '',
         url: '',
         genre: '',
@@ -74,7 +74,7 @@ const List: React.FC<IProps> = ({books, setBooks}) => {
         <ul>
             {displayList()}
         </ul>
-        <EditBook showEdit={showEdit} editBook={editBook} setEditBook={setEditBook} books={books} setBooks={setBooks} selected={selected}/>
+        <EditBook showEdit={showEdit} setShowEdit={setShowEdit} editBook={editBook} setEditBook={setEditBook} books={books} setBooks={setBooks} selected={selected}/>
       </div>
     )
 }

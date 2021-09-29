@@ -19,9 +19,10 @@ interface EditProps {
     }[],
     setEditBook: React.Dispatch<React.SetStateAction<EditProps['editBook']>>,
     setBooks: React.Dispatch<React.SetStateAction<EditProps['books']>>,
+    setShowEdit: React.Dispatch<React.SetStateAction<EditProps['showEdit']>>
 }
 
-const EditBooks: React.FC<EditProps> = ({showEdit, editBook, setEditBook, books, setBooks, selected}) => {
+const EditBooks: React.FC<EditProps> = ({showEdit, setShowEdit, editBook, setEditBook, books, setBooks, selected}) => {
 
     function inputHandler(e:React.ChangeEvent<HTMLInputElement>): void {
         setEditBook({
@@ -34,7 +35,9 @@ const EditBooks: React.FC<EditProps> = ({showEdit, editBook, setEditBook, books,
         e.preventDefault()
         const editedBook = [...books]
         editedBook.splice(selected, 1, editBook)
+        
         setBooks(editedBook)
+        setShowEdit(!showEdit)
         
 
     }
