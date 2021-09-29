@@ -8,3 +8,11 @@ input {
   margin: 15px;
   width: 100%;
 }
+
+.hide-edit {
+  display: none;
+}
+
+.show-edit {
+  display: block;
+}

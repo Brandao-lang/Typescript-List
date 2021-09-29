@@ -5,6 +5,7 @@ import './components/AddBook'
 import List from './components/List';
 import AddBooks from './components/AddBook';
 
+
 // Setting the types for the useState hook, initializing an array of objects with these types
 export interface IState {
   books: {
@@ -17,20 +18,18 @@ export interface IState {
 }
 
 function App() {
-    const [books, setBooks] = useState<IState['books']>([
-      {
-        title: 'The Witcher',
-        url: "https://m.media-amazon.com/images/I/51pRo5wpR4L.jpg",
-        genre: "Fantasy",
-        pages: 287,
-        author: "Andrez Sapkowski"
-      }
-    ])
+    const [books, setBooks] = useState<IState['books']>([])
   
   return (
     <div className="App">
       <h1>My Books</h1>
-      <List books={books}/>
+      <List books={books} setBooks={setBooks} editBook={{
+        title: '',
+        url: undefined,
+        genre: '',
+        pages: 0,
+        author: ''
+      }} selected={0} />
       <AddBooks books={books} setBooks={setBooks}/>
     </div>
   );
